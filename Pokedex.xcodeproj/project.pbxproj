@@ -18,6 +18,7 @@
 		9C47BAA126A7333D002F3C67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C47BAA026A7333D002F3C67 /* main.m */; };
 		9C47BAAE26A78287002F3C67 /* PIPokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C47BAAD26A78287002F3C67 /* PIPokemon.m */; };
 		9C47BAB126A782AF002F3C67 /* PIPokemonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C47BAB026A782AF002F3C67 /* PIPokemonType.m */; };
+		9CF07D7126B4A01300203E2E /* PIPokemonType+TypeIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF07D7026B4A01300203E2E /* PIPokemonType+TypeIcon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		9C47BAAF26A782AF002F3C67 /* PIPokemonType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPokemonType.h; sourceTree = "<group>"; };
 		9C47BAB026A782AF002F3C67 /* PIPokemonType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPokemonType.m; sourceTree = "<group>"; };
 		9C47BAB326AF203C002F3C67 /* PIPokeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPokeData.h; sourceTree = "<group>"; };
+		9CF07D6F26B4A01300203E2E /* PIPokemonType+TypeIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PIPokemonType+TypeIcon.h"; sourceTree = "<group>"; };
+		9CF07D7026B4A01300203E2E /* PIPokemonType+TypeIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PIPokemonType+TypeIcon.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 			children = (
 				9C16FD7126B485D200C681F4 /* UIColor+Pokemon.h */,
 				9C16FD7226B485D200C681F4 /* UIColor+Pokemon.m */,
+				9CF07D6F26B4A01300203E2E /* PIPokemonType+TypeIcon.h */,
+				9CF07D7026B4A01300203E2E /* PIPokemonType+TypeIcon.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				9C16FD7526B486EA00C681F4 /* PIPokeData.m in Sources */,
 				9C47BA9626A7333A002F3C67 /* ViewController.m in Sources */,
 				9C47BA9026A7333A002F3C67 /* AppDelegate.m in Sources */,
+				9CF07D7126B4A01300203E2E /* PIPokemonType+TypeIcon.m in Sources */,
 				9C47BAA126A7333D002F3C67 /* main.m in Sources */,
 				9C16FD7326B485D200C681F4 /* UIColor+Pokemon.m in Sources */,
 				9C16FD6F26B46B2200C681F4 /* PIPokemonStat.m in Sources */,
