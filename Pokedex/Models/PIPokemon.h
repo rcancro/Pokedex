@@ -32,10 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 // NSURL uses copy as well since NSMutableURL is a thing
 @property (nonatomic, copy, readonly) NSURL *imageURL;
 
-// Some pokemon have gender, but not all. If this is a gendered pokemon this image will be
-// its other gender. Note that we mark the property as "nullable" since it may or may not contain data
-@property (nonatomic, copy, readonly, nullable) NSURL *genderedImageURL;
-
 // All primitive types use "assign" by default. There is no reason to explicitly add it to the property
 @property (nonatomic, readonly) NSUInteger number;
 @property (nonatomic, readonly) NSUInteger height;

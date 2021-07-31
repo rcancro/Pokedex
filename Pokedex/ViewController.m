@@ -6,9 +6,11 @@
 //
 
 #import "ViewController.h"
-#import "UIColor+Pokemon.h"
+
 #import "PIPokemon.h"
 #import "PIPokeData.h"
+#import "PIPokemonXibTableViewCell.h"
+#import "UIView+Nib.h"
 
 @interface ViewController ()
 
@@ -19,10 +21,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor pokeballColor];
     NSDictionary *pokemonData = [pokeData() firstObject];
     PIPokemon *pokemon = [[PIPokemon alloc] initWithDictionary:pokemonData];
-    NSLog(@"%@", pokemon);
+    
+    PIPokemonXibTableViewCell *cell = [PIPokemonXibTableViewCell loadFromNib];
+    cell.frame = CGRectMake(0, 60, self.view.frame.size.width, cell.frame.size.height);
+    
+    [cell updateWithPokemon:pokemon];
+    [self.view addSubview:cell];
 }
 
 @end

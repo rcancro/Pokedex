@@ -33,6 +33,15 @@ NSArray<NSDictionary *> * pokeData(void) {
                         @"front_female" : @"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/25.png",
                         @"front_shiny" : @"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png",
                         @"front_shiny_female" : @"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/25.png",
+                        @"other": @{
+                                    @"dream_world": @{
+                                        @"front_default": @"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg",
+                                        @"front_female": NSNull.null
+                                    },
+                                    @"official-artwork": @{
+                                        @"front_default": @"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+                                    }
+                                },
                 },
                 @"description" : @"a mouse pokemon. and a detective. and a pop start. and a surfer.",
                 @"weight" : @60,

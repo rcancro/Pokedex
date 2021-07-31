@@ -23,8 +23,7 @@
         _height = [dictionary[@"height"] unsignedIntValue];
         
         _name = dictionary[@"name"];
-        _imageURL = dictionary[@"sprites"][@"front_default"];
-        _genderedImageURL = dictionary[@"sprites"][@"front_female"];
+        _imageURL = [NSURL URLWithString:dictionary[@"sprites"][@"other"][@"official-artwork"][@"front_default"]];
         
         NSMutableArray *types = [NSMutableArray array];
         for (NSDictionary *typeDictionary in dictionary[@"types"]) {
