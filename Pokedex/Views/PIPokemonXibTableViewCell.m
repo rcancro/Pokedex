@@ -10,13 +10,9 @@
 #import "PIPokemonType+TypeIcon.h"
 #import "UIImageView+URL.h"
 
-@interface PIPokemonXibTableViewCell()
-
-
-@end
-
 @implementation PIPokemonXibTableViewCell
 
+// This method is called on any object when it is loaded from a xib. It is only called once.
 - (void)awakeFromNib
 {
     [super awakeFromNib];

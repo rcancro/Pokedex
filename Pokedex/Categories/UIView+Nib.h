@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (Nib)
 
+/// convenience method to load a view from a xib file
 + (instancetype)loadFromNib;
 
 @end

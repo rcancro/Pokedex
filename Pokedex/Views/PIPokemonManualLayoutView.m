@@ -13,6 +13,11 @@
 static const CGSize kPokemonImageSize = { .width = 56.0, .height = 56.0 };
 static const CGSize kPokemonTypeImageSize = { .width = 14.0, .height = 14.0 };
 
+// Obj-c has no perception of private or protected. Everything is a message, so you can
+// access anything. However, a typical pattern is to use anonymous categories to "hide"
+// properties from the header file. Since you can send any message dynamically to any
+// object, you can technically still access these properties. But this is the best
+// we can get with Obj-C.
 @interface PIPokemonManualLayoutView()
 
 @property (nonatomic) UIImageView *pokemonImageView;
@@ -108,9 +113,14 @@ static const CGSize kPokemonTypeImageSize = { .width = 14.0, .height = 14.0 };
     CGFloat typeImageLabelPadding = 4.0;
     CGFloat typesPadding = 8.0;
 
+    // use the label's sizeThatFits: method to compute the label size.
+    // We can't use a static height because we don't know if the text will wrap and we don't
+    // know what font multipliers a user may be using for accessibility.
     CGSize numberLabelSize = [self.numberLabel sizeThatFits:CGSizeMake(width, CGFLOAT_MAX)];
     
+    // here we determine how much room we want the name label to take up. This label will get the most room to stretch
     CGFloat nameLabelWidth = width - (xMargins + kPokemonImageSize.width + xMargins + xMargins + numberLabelSize.width + xMargins);
+    // we then use that size with float max height to determine our size.
     CGSize pokemonNameLabelSize = [self.pokemonNameLabel sizeThatFits:CGSizeMake(nameLabelWidth, CGFLOAT_MAX)];
     
     CGSize typeOneSize = [self.firstTypeLabel sizeThatFits:CGSizeMake(nameLabelWidth, CGFLOAT_MAX)];
@@ -121,6 +131,12 @@ static const CGSize kPokemonTypeImageSize = { .width = 14.0, .height = 14.0 };
     CGFloat totalHeight = MAX(textHeight, imageHeight);
     
     if (apply) {
+        // when creating frame, we also need to determine the x,y origin coordinates for each view.
+        
+        // because we don't know how big a font multiplier a user may have turned on, we need to figure out which part
+        // of the cell actually determine the final height. Is it the image + the yMargins, or is it the pokemonName +
+        // types + yMargins that are bigger? Whichever is smaller gets offset by 1/2 of the larger height so everything
+        // is centered.
         CGFloat extraImageYPadding = 0;
         CGFloat extraTextYPadding = 0;
         if (textHeight > imageHeight) {
@@ -141,6 +157,8 @@ static const CGSize kPokemonTypeImageSize = { .width = 14.0, .height = 14.0 };
             typeTextYPadding = (kPokemonTypeImageSize.height - typeOneSize.height)/2.0;
         }
         
+        // finally we can compute frames
+        // note the use of CGRectGetMaxX/Y. It is useful for laying out!
         CGRect typeOneImageFrame = CGRectMake(CGRectGetMinX(pokemonNameLabelFrame),
                                              CGRectGetMaxY(pokemonNameLabelFrame) + typeImageYPadding,
                                              kPokemonTypeImageSize.width,
@@ -166,6 +184,7 @@ static const CGSize kPokemonTypeImageSize = { .width = 14.0, .height = 14.0 };
                                         numberLabelSize.width,
                                         numberLabelSize.height);
 
+        // finally we set the frames!
         self.pokemonImageView.frame = pokemonImageFrame;
         self.pokemonNameLabel.frame = pokemonNameLabelFrame;
         self.firstTypeImageView.frame = typeOneImageFrame;
