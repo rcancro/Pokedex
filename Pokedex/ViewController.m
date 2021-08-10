@@ -10,6 +10,7 @@
 #import "PIPokemon.h"
 #import "PIPokeData.h"
 #import "PIPokemonAutoLayoutView.h"
+#import "PIPokemonManualLayoutView.h"
 #import "PIPokemonXibTableViewCell.h"
 #import "UIView+Nib.h"
 
@@ -30,12 +31,19 @@
     [cell updateWithPokemon:pokemon];
 
     PIPokemonAutoLayoutView *autoLayoutCell = [[PIPokemonAutoLayoutView alloc] init];
+    [autoLayoutCell updateWithPokemon:pokemon];
     CGSize size = [autoLayoutCell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     autoLayoutCell.frame = CGRectMake(0, 180, self.view.frame.size.width, size.height);
-    [autoLayoutCell updateWithPokemon:pokemon];
+    
+    PIPokemonManualLayoutView *manualView = [[PIPokemonManualLayoutView alloc] init];
+    [manualView updateWithPokemon:pokemon];
+    CGSize manualSize = [manualView sizeThatFits:CGSizeMake(self.view.frame.size.width, CGFLOAT_MAX)];
+    manualView.frame = CGRectMake(0, 300, self.view.frame.size.width, manualSize.height);
+    
     
     [self.view addSubview:cell];
     [self.view addSubview:autoLayoutCell];
+    [self.view addSubview:manualView];
 }
 
 @end

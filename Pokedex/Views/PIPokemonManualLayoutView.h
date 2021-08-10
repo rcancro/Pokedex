@@ -7,9 +7,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class PIPokemon;
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PIPokemonManualLayoutTableViewCell : UITableViewCell
+@interface PIPokemonManualLayoutView : UIView
+
+- (void)updateWithPokemon:(PIPokemon *)pokemon;
 
 @end
 
