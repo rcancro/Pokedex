@@ -7,10 +7,32 @@
 
 #import <Foundation/Foundation.h>
 
+NSDictionary *exampleStatData(void) {
+    return @{
+        @"base_stat": @35,
+        @"effort": @0,
+        @"stat": @{
+                @"name": @"hp",
+                @"url": @"https://pokeapi.co/api/v2/stat/1/"
+        }
+    };
+}
+
+NSDictionary *exampleTypeData(void) {
+    return @{
+        @"slot": @1,
+        @"type": @{
+                @"name": @"electric",
+                @"url": @"https://pokeapi.co/api/v2/type/13/"
+        }
+    };
+}
+
 NSArray<NSDictionary *> * pokeData(void) {
     static NSArray<NSDictionary *> *pokemonData = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
         pokemonData = @[
             @{
                 @"id" : @25,

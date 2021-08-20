@@ -7,4 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSDictionary *exampleTypeData(void);
+extern NSDictionary *exampleStatData(void);
+
 extern NSArray<NSDictionary *> * pokeData(void);
