@@ -11,16 +11,8 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-    if (self) {
-        _name = dictionary[@"type"][@"name"];
-    }
-    return self;
+    return nil;
 }
 
-- (NSString *)description
-{
-    return self.name;
-}
 
 @end

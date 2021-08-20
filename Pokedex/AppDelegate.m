@@ -7,6 +7,11 @@
 
 #import "AppDelegate.h"
 
+#import "PIPokemon.h"
+#import "PIPokemonStat.h"
+#import "PIPokemonType.h"
+#import "PIPokeData.h"
+
 @interface AppDelegate ()
 
 @end
@@ -15,7 +20,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    NSDictionary *pokemonTypeData = exampleTypeData();
+    PIPokemonType *pokemonType = [[PIPokemonType alloc] initWithDictionary:pokemonTypeData];
+    NSLog(@"Pokemon type:\n%@", pokemonType);
+
+    NSDictionary *pokemonStatData = exampleStatData();
+    PIPokemonStat *pokemonStat = [[PIPokemonStat alloc] initWithDictionary:pokemonStatData];
+    NSLog(@"Pokemon type:\n%@", pokemonStat);
+
+    NSDictionary *pokemonData = [pokeData() firstObject];
+    PIPokemon *pokemon = [[PIPokemon alloc] initWithDictionary:pokemonData];
+    NSLog(@"Pokemon:\n%@", pokemon);
+
+    
     return YES;
 }
 
