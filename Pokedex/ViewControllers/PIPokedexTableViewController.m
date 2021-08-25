@@ -7,12 +7,16 @@
 
 #import "PIPokedexTableViewController.h"
 
+#import "PIPokeData.h"
+#import "PIPokemon.h"
+
 @implementation PIPokedexTableViewController
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
+        _pokedex = pokedex();
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"kCellId"];
     }
     return self;
@@ -27,13 +31,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 100;
+    return self.pokedex.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    PIPokemon *pokemon = self.pokedex[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"kCellId" forIndexPath:indexPath];
-    cell.textLabel.text = @"My label text";
+    cell.textLabel.text = pokemon.name;
     return cell;
 }
 
