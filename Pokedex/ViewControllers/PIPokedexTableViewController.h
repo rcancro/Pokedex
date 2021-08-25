@@ -7,9 +7,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class PIPokemon;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PIPokedexTableViewController : UITableViewController
+
+@property (nonatomic, strong) NSArray<PIPokemon *> *pokedex;
 
 @end
 
