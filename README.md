@@ -53,3 +53,21 @@ You should never manually initialize your cell. You should always use  `-dequeue
     return cell;
 }
 ```
+
+## Update your app `rootViewController`
+By now, you should have your brand new `PIPokedexTableViewController`, but you might noticed it does not show up when you run your app.
+You need to update your app's `rootViewController` first.
+You can do it by going to `AppDelegate.m` and update its `- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {` method.
+You will notice in line 21 it sets the window's `rootViewController`.
+It should look like this:
+
+```
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    self.window.rootViewController = [[PIPokedexTableViewController alloc] init];
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+```
+Do not forget to import your new view controller:
+`#import "PIPokedexTableViewController.h"`
