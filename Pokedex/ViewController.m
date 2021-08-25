@@ -43,6 +43,8 @@
     [self.view addSubview:cell];
     [self.view addSubview:autoLayoutCell];
     [self.view addSubview:manualView];
+    
+    self.view.backgroundColor = UIColor.systemBackgroundColor;
 }
 
 @end
