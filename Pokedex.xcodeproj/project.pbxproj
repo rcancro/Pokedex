@@ -924,6 +924,7 @@
 		F2699B9926D6C58D004496C8 /* pokemon_222.json in Resources */ = {isa = PBXBuildFile; fileRef = F269981626D6C58C004496C8 /* pokemon_222.json */; };
 		F2699B9A26D6C58D004496C8 /* pokemon_672.json in Resources */ = {isa = PBXBuildFile; fileRef = F269981726D6C58C004496C8 /* pokemon_672.json */; };
 		F2699B9B26D6C58D004496C8 /* pokemon_388.json in Resources */ = {isa = PBXBuildFile; fileRef = F269981826D6C58C004496C8 /* pokemon_388.json */; };
+		F269A2A626D6D851004496C8 /* PIPokemonAutoLayoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F269A2A526D6D851004496C8 /* PIPokemonAutoLayoutTableViewCell.m */; };
 		F284DA3426C5853E00DA0DC9 /* PIPokedexTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F284DA3326C5853E00DA0DC9 /* PIPokedexTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -1861,6 +1862,8 @@
 		F269981626D6C58C004496C8 /* pokemon_222.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemon_222.json; sourceTree = "<group>"; };
 		F269981726D6C58C004496C8 /* pokemon_672.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemon_672.json; sourceTree = "<group>"; };
 		F269981826D6C58C004496C8 /* pokemon_388.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemon_388.json; sourceTree = "<group>"; };
+		F269A2A426D6D851004496C8 /* PIPokemonAutoLayoutTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPokemonAutoLayoutTableViewCell.h; sourceTree = "<group>"; };
+		F269A2A526D6D851004496C8 /* PIPokemonAutoLayoutTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPokemonAutoLayoutTableViewCell.m; sourceTree = "<group>"; };
 		F284DA3226C5853E00DA0DC9 /* PIPokedexTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPokedexTableViewController.h; sourceTree = "<group>"; };
 		F284DA3326C5853E00DA0DC9 /* PIPokedexTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPokedexTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1903,6 +1906,8 @@
 				9C16FD7D26B4AFC000C681F4 /* PIPokemonAutoLayoutView.m */,
 				9C16FD7F26B4AFD300C681F4 /* PIPokemonManualLayoutView.h */,
 				9C16FD8026B4AFD300C681F4 /* PIPokemonManualLayoutView.m */,
+				F269A2A426D6D851004496C8 /* PIPokemonAutoLayoutTableViewCell.h */,
+				F269A2A526D6D851004496C8 /* PIPokemonAutoLayoutTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3859,6 +3864,7 @@
 			files = (
 				9C16FD8126B4AFD300C681F4 /* PIPokemonManualLayoutView.m in Sources */,
 				9CDD36A526C0A1E50001AFFB /* PIPokemonXibTableViewCell.m in Sources */,
+				F269A2A626D6D851004496C8 /* PIPokemonAutoLayoutTableViewCell.m in Sources */,
 				9C47BAB126A782AF002F3C67 /* PIPokemonType.m in Sources */,
 				9C16FD8A26B508EA00C681F4 /* UIView+Nib.m in Sources */,
 				9C16FD7526B486EA00C681F4 /* PIPokeData.m in Sources */,
