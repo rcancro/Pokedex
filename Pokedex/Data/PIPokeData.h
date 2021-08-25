@@ -7,7 +7,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class PIPokemon;
+
 extern NSDictionary *exampleTypeData(void);
 extern NSDictionary *exampleStatData(void);
 
 extern NSArray<NSDictionary *> * pokeData(void);
+extern NSArray<PIPokemon *> * pokedex(void);

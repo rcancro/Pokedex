@@ -5,7 +5,7 @@
 //  Created by ricky cancro on 7/30/21.
 //
 
-#import <Foundation/Foundation.h>
+#import "PIPokemon.h"
 
 NSDictionary *exampleStatData(void) {
     return @{
@@ -120,6 +120,31 @@ NSArray<NSDictionary *> * pokeData(void) {
                 ]
             },
         ];
+    });
+    return pokemonData;
+}
+
+NSArray<PIPokemon *> * pokedex(void) {
+    static NSInteger pokedexSize = 898;
+    static NSMutableArray<PIPokemon *> *pokemonData = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        pokemonData = [NSMutableArray arrayWithCapacity:pokedexSize];
+        for (NSInteger i = 1; i <= pokedexSize; i++) {
+            @autoreleasepool {
+                NSString *fileName = [NSString stringWithFormat:@"pokemon_%ld",i];
+                NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"json"];
+                NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
+                NSError *error = nil;
+                NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:&error];
+                if (!error && [jsonObject isKindOfClass:[NSDictionary class]]) {
+                    PIPokemon *pokemon = [[PIPokemon alloc] initWithDictionary:jsonObject];
+                    if (pokemon) {
+                        [pokemonData addObject:pokemon];
+                    }
+                }
+            }
+        }
     });
     return pokemonData;
 }
