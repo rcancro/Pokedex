@@ -1,6 +1,6 @@
 # HW #2b Let's build our Pokedex
 
-With your `PIPokedexTableViewController` displaying content, you are ready to move foward and build your Pokedex.
+With your `PIPokedexTableViewController` displaying content, you are ready to move forward and build your Pokedex.
 
 ## Getting Started
 * The goal of this exercise is to display real data in your table view.
@@ -23,7 +23,7 @@ With your `PIPokedexTableViewController` displaying content, you are ready to mo
 ```
 
 ### Update your cell item
-* You now can display the Pokemon name in the `UITableViewCell`.
+* With all this done, you are ready to display the Pokemon name in the `UITableViewCell`.
 ```
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
