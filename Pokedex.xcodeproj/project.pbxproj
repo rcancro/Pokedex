@@ -25,6 +25,7 @@
 		9C47BAB126A782AF002F3C67 /* PIPokemonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C47BAB026A782AF002F3C67 /* PIPokemonType.m */; };
 		9CDD36A526C0A1E50001AFFB /* PIPokemonXibTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD36A426C0A1E50001AFFB /* PIPokemonXibTableViewCell.m */; };
 		9CF07D7126B4A01300203E2E /* PIPokemonType+TypeIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF07D7026B4A01300203E2E /* PIPokemonType+TypeIcon.m */; };
+		F284DA3426C5853E00DA0DC9 /* PIPokedexTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F284DA3326C5853E00DA0DC9 /* PIPokedexTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,8 @@
 		9CDD36A426C0A1E50001AFFB /* PIPokemonXibTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIPokemonXibTableViewCell.m; sourceTree = "<group>"; };
 		9CF07D6F26B4A01300203E2E /* PIPokemonType+TypeIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PIPokemonType+TypeIcon.h"; sourceTree = "<group>"; };
 		9CF07D7026B4A01300203E2E /* PIPokemonType+TypeIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PIPokemonType+TypeIcon.m"; sourceTree = "<group>"; };
+		F284DA3226C5853E00DA0DC9 /* PIPokedexTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPokedexTableViewController.h; sourceTree = "<group>"; };
+		F284DA3326C5853E00DA0DC9 /* PIPokedexTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPokedexTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,7 @@
 		9C47BA8D26A7333A002F3C67 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				F284DA3126C5851400DA0DC9 /* ViewControllers */,
 				9C16FD7626B4AF6900C681F4 /* Views */,
 				9C16FD7026B485B800C681F4 /* Categories */,
 				9C47BAB226AF2001002F3C67 /* Data */,
@@ -161,6 +165,15 @@
 				9C16FD7426B486EA00C681F4 /* PIPokeData.m */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		F284DA3126C5851400DA0DC9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F284DA3226C5853E00DA0DC9 /* PIPokedexTableViewController.h */,
+				F284DA3326C5853E00DA0DC9 /* PIPokedexTableViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +254,7 @@
 				9C47BA9026A7333A002F3C67 /* AppDelegate.m in Sources */,
 				9C16FD8426B4FD1200C681F4 /* PIPokemon+Additions.m in Sources */,
 				9CF07D7126B4A01300203E2E /* PIPokemonType+TypeIcon.m in Sources */,
+				F284DA3426C5853E00DA0DC9 /* PIPokedexTableViewController.m in Sources */,
 				9C47BAA126A7333D002F3C67 /* main.m in Sources */,
 				9C16FD7E26B4AFC000C681F4 /* PIPokemonAutoLayoutView.m in Sources */,
 				9C16FD8726B506C700C681F4 /* UIImageView+URL.m in Sources */,
