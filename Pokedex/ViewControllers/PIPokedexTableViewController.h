@@ -8,12 +8,14 @@
 #import <UIKit/UIKit.h>
 
 @class PIPokemon;
+@class AVAudioPlayer;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PIPokedexTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray<PIPokemon *> *pokedex;
+@property (nonatomic, strong) AVAudioPlayer *pokemonNoisePlayer;
 
 @end
 
