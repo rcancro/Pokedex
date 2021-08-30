@@ -13,6 +13,11 @@
 #import "PIPokemon.h"
 #import "PIPokemonAutoLayoutTableViewCell.h"
 #import "PIPokemonViewController.h"
+#import "PIPokemonDataManager.h"
+
+@interface PIPokedexTableViewController() <PIPokemonViewControllerDelegate>
+
+@end
 
 @implementation PIPokedexTableViewController
 
@@ -20,7 +25,7 @@
 {
     self = [super init];
     if (self) {
-        _pokedex = pokedex();
+        _pokedex = [PIPokemonDataManager.sharedManager fetchPokedex];
         [self.tableView registerClass:[PIPokemonAutoLayoutTableViewCell class] forCellReuseIdentifier:@"PokemonCell"];
         
         // Long Press Gesture - to play the pokemon cry!
@@ -56,6 +61,9 @@
 {
     // Get the pokemon from our pokedex
     PIPokemon *pokemon = self.pokedex[indexPath.row];
+    PIPokemonViewController *pokemonViewController = [[PIPokemonViewController alloc] initWithPokemon:pokemon];
+    pokemonViewController.delegate = self;
+    [self presentViewController:pokemonViewController animated:YES completion:nil];
 }
 
 #pragma mark - Gesture Recognizers
@@ -82,6 +90,22 @@
     AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:cryURL error:nil];
     [player prepareToPlay];
     return player;
+}
+
+#pragma mark - PIPokemonViewControllerDelegate
+
+- (void)pokemonViewController:(PIPokemonViewController *)viewController didPinPokemon:(PIPokemon *)pokemon
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        // Fetch the latest pokemon data and reload the tableview.
+        self.pokedex = [PIPokemonDataManager.sharedManager fetchPokedex];
+        [self.tableView reloadData];
+    }];
+}
+
+- (void)pokemonViewControllerDidRequestToDismiss:(nonnull PIPokemonViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

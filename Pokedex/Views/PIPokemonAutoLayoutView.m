@@ -146,6 +146,8 @@ static const CGSize kPokemonTypeImageSize = { .width = 14.0, .height = 14.0 };
 
 - (void)updateWithPokemon:(PIPokemon *)pokemon
 {
+    self.backgroundColor = pokemon.isPinned ? UIColor.redColor : UIColor.clearColor;
+
     self.numberLabel.text = [pokemon pokemonNumberAsFormattedString];
     
     // I'm using the common knowledge that Pokemon can only have 2 types

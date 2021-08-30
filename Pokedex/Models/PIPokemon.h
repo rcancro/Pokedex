@@ -37,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSUInteger height;
 @property (nonatomic, readonly) NSUInteger weight;
 
+// Properties set and used locally.
+@property (nonatomic, readwrite) BOOL isPinned;
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
