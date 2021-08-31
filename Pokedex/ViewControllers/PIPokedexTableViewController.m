@@ -14,7 +14,6 @@
 #import "PIPokemonAutoLayoutTableViewCell.h"
 #import "PIPokemonViewController.h"
 #import "PIPokemonDataManager.h"
-
 @interface PIPokedexTableViewController() <PIPokemonViewControllerDelegate>
 
 @end
@@ -61,9 +60,15 @@
 {
     // Get the pokemon from our pokedex
     PIPokemon *pokemon = self.pokedex[indexPath.row];
-    PIPokemonViewController *pokemonViewController = [[PIPokemonViewController alloc] initWithPokemon:pokemon];
-    pokemonViewController.delegate = self;
-    [self presentViewController:pokemonViewController animated:YES completion:nil];
+    
+    
+    // HW3B: Although Team Rocket had the audacity to destory our local pokemon data, we can still fetch them via https://pokeapi.co/. Implement fetchPokemonWithId in PIPokemonDataManager
+    [[PIPokemonDataManager sharedManager] fetchPokemonWithId:pokemon.number completion:^(PIPokemon * _Nonnull pokemon) {
+    
+        PIPokemonViewController *pokemonViewController = [[PIPokemonViewController alloc] initWithPokemon:pokemon];
+        pokemonViewController.delegate = self;
+        [self presentViewController:pokemonViewController animated:YES completion:nil];
+    }];
 }
 
 #pragma mark - Gesture Recognizers

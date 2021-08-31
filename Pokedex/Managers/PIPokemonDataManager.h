@@ -11,6 +11,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^PokemonFetchCompletion)(PIPokemon *);
+
 // This class will serve as a single access point for managing pokedex data
 // that needs to be shared across different surfaces.
 @interface PIPokemonDataManager : NSObject
@@ -18,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, strong, readonly) PIPokemonDataManager *sharedManager;
 
 - (NSArray<PIPokemon *> *)fetchPokedex;
+- (void)fetchPokemonWithId:(NSInteger)pokemonId completion:(PokemonFetchCompletion)completion;
 - (void)pinPokemon:(PIPokemon *)pokemon;
 
 @end

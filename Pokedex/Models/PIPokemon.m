@@ -58,4 +58,16 @@
     return description;
 }
 
+
+- (void)setIsPinned:(BOOL)isPinned
+{
+    // write to standard default
+}
+
+- (BOOL)isPinned
+{
+    // access standard default for value
+    return NO;
+}
+
 @end

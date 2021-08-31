@@ -9,6 +9,8 @@
 #import "PIPokeData.h"
 #import "PIPokemon.h"
 
+NSString * const kPokemonListAPIEndpoint = @"https://pokeapi.co/api/v2/pokemon";
+
 @interface PIPokemonDataManager()
 
 @property (nonatomic, copy, readwrite) NSArray<PIPokemon *> *pokedex;
@@ -37,6 +39,13 @@
     }
     return self.pokedex;
 }
+
+- (void)fetchPokemonWithId:(NSInteger)pokemonId completion:(PokemonFetchCompletion)completion
+{
+    // make an API call to the endpoint definded in kPokemonListAPIEndpoint and call completion once it's done.
+}
+
+
 
 - (void)pinPokemon:(PIPokemon *)pokemon
 {
