@@ -43,6 +43,30 @@ NSString * const kPokemonListAPIEndpoint = @"https://pokeapi.co/api/v2/pokemon";
 - (void)fetchPokemonWithId:(NSInteger)pokemonId completion:(PokemonFetchCompletion)completion
 {
     // make an API call to the endpoint definded in kPokemonListAPIEndpoint and call completion once it's done.
+    // configure an URL Session
+        NSURLSession *urlSession = [NSURLSession sharedSession];
+        
+    // make an URL request with a url string
+    NSString *urlString = [NSString stringWithFormat:@"https://pokeapi.co/api/v2/pokemon/%lu", pokemonId];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    urlRequest.HTTPMethod = @"GET";
+                                                                               
+    // generate a data task with url session
+        NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
+            if (statusCode == 200) {
+                NSError *error = nil;
+                NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    completion([[PIPokemon alloc] initWithDictionary:responseDict]);
+                });
+                NSLog(@"The response is - %@",responseDict);
+            } else {
+                NSLog(@"%@",error.localizedDescription);
+            }
+        }];
+    // start task by calling resume
+        [dataTask resume];
 }
 
 
