@@ -18,6 +18,11 @@
     // Override point for customization after application launch.
     return YES;
 }
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown
+;
+}
 
 
 @end
