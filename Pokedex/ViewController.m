@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // add print statement to see the order view lifecycle events being called
     NSLog(@"***** viewWillAppear is called");
 
     NSDictionary *pokemonData = [pokeData() firstObject];
@@ -48,8 +49,9 @@
     [self.view addSubview:cell];
     [self.view addSubview:self.autoLayoutCell];
     [self.view addSubview:self.manualView];
-    [self setNavigationBarTitle];
     
+    // do initialization in viewdidload
+    [self setNavigationBarTitle];
     self.pikachuCount = 3;
     [self createButton];
     [self createPikachuCountLabel];
@@ -59,6 +61,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    // add print statement to see the order view lifecycle events being called
     NSLog(@"***** viewWillAppear is called");
     self.view.hidden = YES;
 }
@@ -66,19 +69,22 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    // add print statement to see the order view lifecycle events being called
+    NSLog(@"***** viewDidAppear is called");
     [self showViewAfterTwoSeconds];
     [self animateLastViewToANewPlace];
-    NSLog(@"***** viewDidAppear is called");
 }
 
 
 - (void)viewWillLayoutSubviews
 {
+    // add print statement to see the order view lifecycle events being called
     NSLog(@"***** viewWillLayoutSubviews is called");
 }
 
 - (void)viewDidLayoutSubviews
 {
+    // add print statement to see the order view lifecycle events being called
     NSLog(@"***** viewDidLayoutSubviews is called");
 }
 
