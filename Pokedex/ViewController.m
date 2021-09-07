@@ -13,10 +13,12 @@
 #import "PIPokemonManualLayoutView.h"
 #import "PIPokemonXibTableViewCell.h"
 #import "UIView+Nib.h"
-
 @interface ViewController ()
 @property(nonatomic, strong)PIPokemonManualLayoutView *manualView;
 @property(nonatomic, strong)PIPokemonAutoLayoutView *autoLayoutCell;
+@property(nonatomic, strong)UIButton *hideButton;
+@property(nonatomic, assign)NSInteger pikachuCount;
+@property(nonatomic, strong)UILabel *pikachuCountLabel;
 @end
 
 @implementation ViewController
@@ -24,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"***** viewWillAppear is called");
+
     NSDictionary *pokemonData = [pokeData() firstObject];
     PIPokemon *pokemon = [[PIPokemon alloc] initWithDictionary:pokemonData];
     
@@ -45,25 +49,75 @@
     [self.view addSubview:self.autoLayoutCell];
     [self.view addSubview:self.manualView];
     [self setNavigationBarTitle];
-    self.view.hidden = YES;
+    
+    self.pikachuCount = 3;
+    [self createButton];
+    [self createPikachuCountLabel];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     NSLog(@"***** viewWillAppear is called");
-    [self showViewAfterTwoSeconds];
-    
-    
+    self.view.hidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self showViewAfterTwoSeconds];
     [self animateLastViewToANewPlace];
-    NSLog(@"** view did appear is called");
+    NSLog(@"***** viewDidAppear is called");
 }
 
+
+- (void)viewWillLayoutSubviews
+{
+    NSLog(@"***** viewWillLayoutSubviews is called");
+}
+
+- (void)viewDidLayoutSubviews
+{
+    NSLog(@"***** viewDidLayoutSubviews is called");
+}
+
+- (void)createPikachuCountLabel
+{
+    _pikachuCountLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _pikachuCountLabel.font = [UIFont systemFontOfSize:15];
+    _pikachuCountLabel.frame = CGRectMake(25.0, 440.0, 160.0, 40.0);
+    [self.view addSubview:_pikachuCountLabel];
+    [self updatePikachuCountLabel];
+}
+
+- (void)updatePikachuCountLabel
+{
+    self.pikachuCountLabel.text = [NSString stringWithFormat:@"%ld Pikachus", self.pikachuCount];
+}
+
+- (void)createButton
+{
+    self.hideButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    [self.hideButton addTarget:self
+               action:@selector(buttonTapped)
+     forControlEvents:UIControlEventTouchUpInside];
+    [self.hideButton setTitle:@"hide last Pikachu" forState:UIControlStateNormal];
+    [self.hideButton setBackgroundColor:UIColor.lightGrayColor];
+    self.hideButton.frame = CGRectMake(8.0, 400.0, 160.0, 40.0);
+    self.hideButton.layer.cornerRadius = 8.0;
+    [self.view addSubview:self.hideButton];
+}
+- (void)buttonTapped
+{
+    self.manualView.hidden = !self.manualView.hidden;
+    NSString *title = self.manualView.hidden ?  @"show last Pikachu" : @"hide last Pikachu";
+    [self.hideButton setTitle:title forState:UIControlStateNormal];
+    // in real application, model changes are from network
+    self.pikachuCount = self.manualView.hidden ? 2 : 3;
+    [self updatePikachuCountLabel];
+}
 - (void)showViewAfterTwoSeconds
 {
     double delayInSeconds = 2.0;
@@ -82,22 +136,8 @@
 - (void)animateLastViewToANewPlace
 {
     [UIView animateWithDuration:2.0 delay:3.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-        self.manualView.frame = CGRectMake(20, 320, self.view.frame.size.width, self.view.frame.size.height);
+        self.manualView.frame = CGRectMake(0, 320, self.view.frame.size.width, self.view.frame.size.height);
     } completion:nil];
 }
 
-- (void)viewWillLayoutSubviews
-{
-    NSLog(@"******** bounds is %@", NSStringFromCGRect(self.view.bounds));
-    NSLog(@"******** frame is %@", NSStringFromCGRect(self.view.frame));
-
-    self.view.frame = self.view.bounds;
-    NSLog(@"******* viewWillLayoutSubviews is called");
-
-}
-
-- (void)viewDidLayoutSubviews
-{
-    NSLog(@"******* viewDidLayoutSubviews is called");
-}
 @end
