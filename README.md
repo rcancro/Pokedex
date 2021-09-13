@@ -8,7 +8,15 @@ In this exercise, we will build on top of the Pokedex we have built and learn ho
 ## Tasks
 
 ### Add a gesture recognizer
-* Add a gesture recognizer on the pokemon tableview cell, which plays the sound of the pokemon tapped on a long press.
+* We're going to make the pokemon use its cry when it's long pressed, to do that:
+* Add a long press gesture recognizer on the pokemon tableview, which plays the sound of the pokemon tapped.
+* Once you've got the pokemon, use these two lines in your long press handler to play the cry!
+
+
+` self.pokemonNoisePlayer = [self createAudioPlayerForPokemon:pokemon];`
+
+`[self.pokemonNoisePlayer play];`
+
 
 ### Present another view controller
 * Implement `-tableView:didSelectRowAtIndexPath:` to present `PIPokemonViewController` for the pokemon found at the selected row.
