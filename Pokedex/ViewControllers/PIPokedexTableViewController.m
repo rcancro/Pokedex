@@ -29,11 +29,7 @@
         _pokedex = pokedex();
         [self.tableView registerClass:[PIPokemonAutoLayoutTableViewCell class] forCellReuseIdentifier:@"PokemonCell"];
         
-        // Long Press Gesture - to play the pokemon cry!
-        UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-        [self.tableView addGestureRecognizer:longPressRecognizer];
-        
-        
+        // TODO: Long Press Gesture - to play the pokemon cry!
     }
     return self;
 }
@@ -58,25 +54,13 @@
     return pokemonCell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+// TODO: use didSelectRowAtIndexPath here to handle taps on a row
     // TODO: (Presentation) Present `PIPokemonViewController` from here
     // TODO: (Delegate) Assign delegate of `PIPokemonViewController` to this VC
-}
 
 #pragma mark - Gesture Recognizers
 
-- (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
-{
-    CGPoint point = [gestureRecognizer locationInView:self.tableView];
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
-    if (indexPath != nil && indexPath.row && gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        PIPokemon *pokemon = self.pokedex[indexPath.row];
-        self.pokemonNoisePlayer = [self createAudioPlayerForPokemon:pokemon];
-        [self.pokemonNoisePlayer play];
-    }
-}
+// TODO: Add your method to handle the long press here
 
 #pragma mark - Helper
 
