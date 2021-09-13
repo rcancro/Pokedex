@@ -12,10 +12,10 @@
 #import "PIPokeData.h"
 #import "PIPokemon.h"
 #import "PIPokemonAutoLayoutTableViewCell.h"
-#import "PIPokemonViewController.h"
-#import "PIPokemonDataManager.h"
 
-@interface PIPokedexTableViewController() <PIPokemonViewControllerDelegate>
+// TODO: (Delegate) Specify delegate(s) this view controller needs to conform
+
+@interface PIPokedexTableViewController()
 
 @end
 
@@ -25,7 +25,8 @@
 {
     self = [super init];
     if (self) {
-        _pokedex = [PIPokemonDataManager.sharedManager fetchPokedex];
+        // TODO: (Singleton) Change below to get the pokedex data from the data manager class.
+        _pokedex = pokedex();
         [self.tableView registerClass:[PIPokemonAutoLayoutTableViewCell class] forCellReuseIdentifier:@"PokemonCell"];
         
         // Long Press Gesture - to play the pokemon cry!
@@ -59,11 +60,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the pokemon from our pokedex
-    PIPokemon *pokemon = self.pokedex[indexPath.row];
-    PIPokemonViewController *pokemonViewController = [[PIPokemonViewController alloc] initWithPokemon:pokemon];
-    pokemonViewController.delegate = self;
-    [self presentViewController:pokemonViewController animated:YES completion:nil];
+    // TODO: (Presentation) Present `PIPokemonViewController` from here
+    // TODO: (Delegate) Assign delegate of `PIPokemonViewController` to this VC
 }
 
 #pragma mark - Gesture Recognizers
@@ -94,18 +92,6 @@
 
 #pragma mark - PIPokemonViewControllerDelegate
 
-- (void)pokemonViewController:(PIPokemonViewController *)viewController didPinPokemon:(PIPokemon *)pokemon
-{
-    [self dismissViewControllerAnimated:YES completion:^{
-        // Fetch the latest pokemon data and reload the tableview.
-        self.pokedex = [PIPokemonDataManager.sharedManager fetchPokedex];
-        [self.tableView reloadData];
-    }];
-}
-
-- (void)pokemonViewControllerDidRequestToDismiss:(nonnull PIPokemonViewController *)viewController
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+// TODO: (Delegate) Add delegate conformation methods for handling events from `PIPokemonViewController`.
 
 @end

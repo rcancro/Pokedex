@@ -10,7 +10,6 @@
 #import "PIPokemon.h"
 #import "PIPokemon+Additions.h"
 #import "PIPokemonType+TypeIcon.h"
-#import "PIPokemonDataManager.h"
 #import "UIImageView+URL.h"
 
 static CGFloat kButtonHeight = 50.0;
@@ -237,17 +236,12 @@ static CGFloat kButtonHeight = 50.0;
 
 - (void)didTapPinItButton
 {
-    // Access the singleton manager class and update shared pokemon data.
-    [PIPokemonDataManager.sharedManager pinPokemon:self.pokemon];
-
-    // Tell the delegate that we pinned a pokemon from the view controller.
-    [self.delegate pokemonViewController:self didPinPokemon:self.pokemon];
+    // TODO: (Singleton) Call the data manager to update the property of the pokemon, trigger reload of the UI.
 }
 
 - (void)didTapCloseButton
 {
-    // Tell the delegate to dismiss the view controller.
-    [self.delegate pokemonViewControllerDidRequestToDismiss:self];
+    // TODO: (Delegate) Delegate dismissal of the view controller to the presenting.
 }
 
 @end

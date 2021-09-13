@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C186F7D26DD9F3C00692220 /* PIPokemonDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C186F7C26DD9F3C00692220 /* PIPokemonDataManager.m */; };
 		4C220EE726D999DD00F11FBE /* PIPokemonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C220EE626D999DD00F11FBE /* PIPokemonViewController.m */; };
 		9C16FD6F26B46B2200C681F4 /* PIPokemonStat.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16FD6E26B46B2200C681F4 /* PIPokemonStat.m */; };
 		9C16FD7326B485D200C681F4 /* UIColor+Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16FD7226B485D200C681F4 /* UIColor+Pokemon.m */; };
@@ -1992,8 +1991,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4C186F7B26DD9F3C00692220 /* PIPokemonDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPokemonDataManager.h; sourceTree = "<group>"; };
-		4C186F7C26DD9F3C00692220 /* PIPokemonDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPokemonDataManager.m; sourceTree = "<group>"; };
 		4C220EE526D999DD00F11FBE /* PIPokemonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPokemonViewController.h; sourceTree = "<group>"; };
 		4C220EE626D999DD00F11FBE /* PIPokemonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPokemonViewController.m; sourceTree = "<group>"; };
 		9C16FD6D26B46B2200C681F4 /* PIPokemonStat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPokemonStat.h; sourceTree = "<group>"; };
@@ -4012,8 +4009,6 @@
 		4C186F7A26DD9F2200692220 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				4C186F7B26DD9F3C00692220 /* PIPokemonDataManager.h */,
-				4C186F7C26DD9F3C00692220 /* PIPokemonDataManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -8156,7 +8151,6 @@
 				9C16FD7E26B4AFC000C681F4 /* PIPokemonAutoLayoutView.m in Sources */,
 				A461CB8C26D950A70008F8B4 /* PIPokemonAutoLayoutTableViewCell.m in Sources */,
 				4C220EE726D999DD00F11FBE /* PIPokemonViewController.m in Sources */,
-				4C186F7D26DD9F3C00692220 /* PIPokemonDataManager.m in Sources */,
 				9C16FD8726B506C700C681F4 /* UIImageView+URL.m in Sources */,
 				9C16FD7326B485D200C681F4 /* UIColor+Pokemon.m in Sources */,
 				9C16FD6F26B46B2200C681F4 /* PIPokemonStat.m in Sources */,
