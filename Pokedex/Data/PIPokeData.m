@@ -137,7 +137,7 @@ NSArray<PIPokemon *> * pokedex(void) {
                 NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
                 NSError *error = nil;
                 NSMutableDictionary *jsonObject = [[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:&error] mutableCopy];
-                // HW3c: meowth did dis.
+                // HW3b: meowth did dis.
                 [jsonObject removeObjectForKey:@"stats"];
                 if (!error && [jsonObject isKindOfClass:[NSDictionary class]]) {
                     PIPokemon *pokemon = [[PIPokemon alloc] initWithDictionary:jsonObject];
