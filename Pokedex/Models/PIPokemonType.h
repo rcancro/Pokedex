@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PIPokemonType : NSObject
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+@property (nonatomic, copy, readonly) NSString *name;
 
 @end
 

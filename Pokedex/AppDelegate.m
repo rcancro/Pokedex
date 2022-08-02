@@ -3,6 +3,7 @@
 //  Pokedex
 //
 //  Created by ricky cancro on 7/20/21.
+//  Modified by Natalia Orbach-Mandel on 8.2.22
 //
 
 #import "AppDelegate.h"

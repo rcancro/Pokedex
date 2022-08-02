@@ -11,7 +11,12 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-    return nil;
+    self = [super init];
+    if (self) {
+        _name = dictionary[@"stat"][@"name"];
+        _value = [dictionary[@"base_stat"] unsignedIntValue];
+    }
+    return self;
 }
 
 @end

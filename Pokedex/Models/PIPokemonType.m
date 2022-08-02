@@ -11,7 +11,11 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-    return nil;
+    self = [super init];
+    if (self) {
+        _name = dictionary[@"type"][@"name"];
+    }
+    return self;
 }
 
 
