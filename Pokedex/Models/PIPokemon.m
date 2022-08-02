@@ -46,6 +46,23 @@
     return self;
 }
 
-
+- (NSString *) description {
+    NSMutableString *descrip = [NSMutableString string];
+    // first add a line for the name, starting with a newline and ending with one
+    [descrip appendFormat:@"\nName : %@ \n", self.name];
+    [descrip appendFormat:@"Pokemon Number: %tu \n", self.number];
+    [descrip appendFormat:@"Weight: %tu,  Height: %tu \n", self.weight, self.height];
+    [descrip appendString:@"Types: \n"];
+    // For any number of types (either one or two realistically), add type
+    for (PIPokemonType *type in self.types) {
+        [descrip appendFormat:@"\t%@ \n", type];
+    }
+    [descrip appendString:@"Stats: \n"];
+    //For any number of stats, we want to add it
+    for (PIPokemonStat *stat in self.stats) {
+        [descrip appendFormat:@"\t%@ \n", stat];
+    }
+    return descrip;
+}
 
 @end
